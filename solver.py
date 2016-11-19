@@ -101,6 +101,3 @@ while True:
                 #Add these boards to the stack
                 stack.append(Node(board))
         
-        else:
-        
-            pass
