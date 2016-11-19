@@ -45,7 +45,9 @@ my_board.initialise()
 
 
 try:
+
     my_board.import_board_from_file(argv[1])
+    
 except:
     print ("Could not load a soduku board")
     quit()  
@@ -57,15 +59,28 @@ stack =[root_node] #add this initial root node to the stack
 while True:
 
     if len(stack) ==0:
+    
         print ("Could not solve this board")
         break
 
     new_node = stack.pop()
-    x = new_node.board.is_solved()
-    new_node.board.print_board()
-    if x == True: #If soduku is solved print the board and break the while loop
+    
+    try: #see if the user wants each iteration printing out
+    
+    	if argv[2] == "-printall":
+    	
+    		new_node.board.print_board()
+    		
+    except:
+    
+    	pass
+    
+    if new_node.board.is_solved() == True: #If soduku is solved print the board and break the while loop
+    
         new_node.board.print_board()
-        break           
+        
+        break
+                
     else:
     
         new_node.board.repeat_solve() #iteratively eliminate possible values from each square
@@ -77,6 +92,7 @@ while True:
             to_try = new_node.board.get_fewest_possibilities_square()
     
             for pos_num in to_try[1]:
+            
                 #create a copy of the soduku board and guess the values the to_try function
                 #has returned.
                 board = deepcopy(new_node.board)

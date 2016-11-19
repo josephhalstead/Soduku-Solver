@@ -17,3 +17,14 @@ This program will solve soduku puzzles. The puzzle to be solved should be repres
 To run the program open the solver.py file and update the file path to the puzzle you would like to solve.
 
 Run the file by navigating to the directory in the terminal and typing "python solver.py" and pressing enter.
+
+Installation:
+
+Clone soduku_solver from github and cd into the directory.
+
+Usage:
+
+python solver.py {filename}.txt 
+
+Add -printall as a second option to print out each iteration of the solving process
+
