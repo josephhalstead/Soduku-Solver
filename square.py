@@ -12,7 +12,7 @@ class Square:
         
     def is_solved(self):
         """returns True if square is solved , False if not."""
-        if len(self.possible_values) ==1 or self.solved_value <> ".":
+        if len(self.possible_values) ==1 or self.solved_value != ".":
             return True
         else:
             return False
@@ -46,7 +46,7 @@ class Square:
         elif self.ID in [61,62,63,70,71,72,79,80,81]:
             self.block =9
         else:
-            print "A block assignment error has occured"
+            print ("A block assignment error has occured")
             
     def get_row_neighbours(self, board):
         """for a given square on a given board returns all squares that are solved

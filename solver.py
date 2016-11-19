@@ -30,21 +30,35 @@ Part 2: Depth First Search
 from board import soduku_board
 from square import Square
 from copy import deepcopy
-
+from sys import argv
 
 class Node:
 
     def __init__(self,board):
         self.board = board
    
+   
+#Main program begins here   
+
 my_board = soduku_board()
 my_board.initialise()
-my_board.import_board_from_file("Test Puzzles/test9.txt")
+
+
+try:
+    my_board.import_board_from_file(argv[1])
+except:
+    print ("Could not load a soduku board")
+    quit()  
+
 my_board.print_board()                                  
 root_node = Node(my_board) #create a node that holds the initial soduku board
 stack =[root_node] #add this initial root node to the stack
 
 while True:
+
+    if len(stack) ==0:
+        print ("Could not solve this board")
+        break
 
     new_node = stack.pop()
     x = new_node.board.is_solved()

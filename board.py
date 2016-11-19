@@ -51,21 +51,21 @@ class soduku_board:
             if square.ID %9 == 0: # if there is a new row - increment i
                 i=i+1
         
-        print "+-----------+-----------+-----------+"
+        print ("+-----------+-----------+-----------+")
         
         for num,row in enumerate(rows):
         
             if num in [3,6]: # so we can put the --+-- on every 3rd row
             
-                print "+-----------+-----------+-----------+"
+                print ("+-----------+-----------+-----------+")
                 
-            print "|",
+            print ("|", end=" ")
         
-            print " | ".join(row),
+            print (" | ".join(row), end=" ")
             
-            print "|"
+            print ("|")
             
-        print "+-----------+-----------+-----------+" 
+        print ("+-----------+-----------+-----------+") 
                 
     def import_board_from_file(self,filepath):
     
@@ -103,7 +103,7 @@ class soduku_board:
                     
                 else:
                 
-                    print "An import error has occured"
+                    print ("An import error has occured")
                     return
                 
                 char_counter = char_counter +1
@@ -115,16 +115,16 @@ class soduku_board:
     
         for square in self.board:
         
-            print square.ID, square.row, square.column, square.block, square.possible_values
+            print (square.ID, square.row, square.column, square.block, square.possible_values)
         
     def update_all_possibilities(self):
     
         """Goes through every square and calls the update_possibilities function"""
         
     
-        if len(self.board) <> 81:
+        if len(self.board) != 81:
         
-            print "Error -  board not initialised"
+            print ("Error -  board not initialised")
             
         else:
     
@@ -173,20 +173,20 @@ class soduku_board:
     
         for row in rows:
         
-            if any(row.count(x) >1 and x <>"." for x in row) == True:
+            if any(row.count(x) >1 and x !="." for x in row) == True:
             
                 valid = False
                 
                 
         for column in columns:
         
-            if any(column.count(x) >1 and x <>"." for x in column) == True:
+            if any(column.count(x) >1 and x !="." for x in column) == True:
             
                 valid = False
         
         for block in blocks:
         
-            if any(block.count(x) >1 and x <>"." for x in block) == True:
+            if any(block.count(x) >1 and x !="." for x in block) == True:
             
                 valid = False
                 
@@ -221,7 +221,7 @@ class soduku_board:
                 #If the squares values are not equal then
                 #set change to True
     
-                if set(square1.possible_values) <> set(square2.possible_values):
+                if set(square1.possible_values) != set(square2.possible_values):
         
                     change = True
             
